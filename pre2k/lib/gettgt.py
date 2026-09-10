@@ -19,7 +19,7 @@ class GETTGT:
 
     def run(self, save):
         userName = Principal(self.__user, type=constants.PrincipalNameType.NT_PRINCIPAL.value)
-        tgt, cipher, oldSessionKey, sessionKey = getKerberosTGT(userName, self.__password, self.__domain, None, None, None, self.__kdcHost)
+        tgt, cipher, oldSessionKey, sessionKey = getKerberosTGT(userName, self.__password, self.__domain, b'', b'', b'', self.__kdcHost)
         if save:
             self.saveTicket(tgt,oldSessionKey)
         return True
